@@ -1,18 +1,22 @@
-# CodeIgniter 4 Framework
+# Hospital Management System (HMS)
 
-## What is CodeIgniter?
+A comprehensive Hospital Management System built with CodeIgniter 4 framework.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+## Features
 
-This repository holds the distributable version of the framework.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+- **Patient Management**: Complete CRUD operations for patient records, medical history, and allergies
+- **Doctor Management**: Manage doctor profiles, specializations, schedules, and availability
+- **Appointment System**: Schedule, confirm, cancel, and manage patient appointments
+- **Medicine Inventory**: Track medicines, stock levels, expiry dates, and dispensing
+- **Admission Management**: Handle patient admissions, ward assignments, and discharges
+- **Billing & Invoicing**: Generate invoices, track payments, and manage billing
+- **RESTful API**: Complete REST API for all operations
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Tech Stack
 
-You can read the [user guide](https://codeigniter.com/user_guide/)
-corresponding to the latest version of the framework.
+- **Backend**: CodeIgniter 4 (PHP 8.1+)
+- **Database**: MySQL/MariaDB
+- **API**: RESTful JSON API
 
 ## Important Change with index.php
 
