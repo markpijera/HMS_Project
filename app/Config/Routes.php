@@ -9,6 +9,14 @@ $routes->get('/', 'Home::index');
 
 // API Routes
 $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], function($routes) {
+    // Authentication routes
+    $routes->post('auth/login', 'AuthController::login');
+    $routes->post('auth/register', 'AuthController::register');
+    $routes->get('auth/me', 'AuthController::me');
+    $routes->put('auth/profile', 'AuthController::updateProfile');
+    $routes->post('auth/change-password', 'AuthController::changePassword');
+    $routes->post('auth/logout', 'AuthController::logout');
+
     // Patient routes
     $routes->get('patients', 'PatientController::index');
     $routes->get('patients/(:num)', 'PatientController::show/$1');
@@ -61,4 +69,12 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], function($route
     $routes->get('reports/appointments', 'ReportController::appointments');
     $routes->get('reports/admissions', 'ReportController::admissions');
     $routes->get('reports/financial', 'ReportController::financial');
+
+    // Ward routes
+    $routes->get('wards', 'WardController::index');
+    $routes->get('wards/available', 'WardController::available');
+    $routes->get('wards/(:num)', 'WardController::show/$1');
+    $routes->post('wards', 'WardController::create');
+    $routes->put('wards/(:num)', 'WardController::update/$1');
+    $routes->delete('wards/(:num)', 'WardController::delete/$1');
 });
