@@ -32,4 +32,21 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], function($route
     $routes->put('medicines/(:num)', 'MedicineController::update/$1');
     $routes->post('medicines/(:num)/dispense', 'MedicineController::dispense/$1');
     $routes->delete('medicines/(:num)', 'MedicineController::delete/$1');
+
+    // Admission routes
+    $routes->get('admissions', 'AdmissionController::index');
+    $routes->get('admissions/active', 'AdmissionController::active');
+    $routes->get('admissions/(:num)', 'AdmissionController::show/$1');
+    $routes->post('admissions', 'AdmissionController::create');
+    $routes->put('admissions/(:num)', 'AdmissionController::update/$1');
+    $routes->post('admissions/(:num)/discharge', 'AdmissionController::discharge/$1');
+
+    // Invoice routes
+    $routes->get('invoices', 'InvoiceController::index');
+    $routes->get('invoices/unpaid', 'InvoiceController::unpaid');
+    $routes->get('invoices/(:num)', 'InvoiceController::show/$1');
+    $routes->post('invoices', 'InvoiceController::create');
+    $routes->put('invoices/(:num)', 'InvoiceController::update/$1');
+    $routes->post('invoices/(:num)/mark-paid', 'InvoiceController::markPaid/$1');
+    $routes->delete('invoices/(:num)', 'InvoiceController::delete/$1');
 });
