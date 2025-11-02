@@ -49,4 +49,16 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], function($route
     $routes->put('invoices/(:num)', 'InvoiceController::update/$1');
     $routes->post('invoices/(:num)/mark-paid', 'InvoiceController::markPaid/$1');
     $routes->delete('invoices/(:num)', 'InvoiceController::delete/$1');
+
+    // Dashboard routes
+    $routes->get('dashboard', 'DashboardController::index');
+    $routes->get('dashboard/appointment-stats', 'DashboardController::appointmentStats');
+    $routes->get('dashboard/admission-stats', 'DashboardController::admissionStats');
+    $routes->get('dashboard/financial-overview', 'DashboardController::financialOverview');
+
+    // Report routes
+    $routes->get('reports/patients', 'ReportController::patients');
+    $routes->get('reports/appointments', 'ReportController::appointments');
+    $routes->get('reports/admissions', 'ReportController::admissions');
+    $routes->get('reports/financial', 'ReportController::financial');
 });
