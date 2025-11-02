@@ -8,6 +8,9 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
+        // Seed Users
+        $this->call('UserSeeder');
+        
         // Seed Doctors
         $this->call('DoctorSeeder');
         
@@ -16,5 +19,8 @@ class DatabaseSeeder extends Seeder
         
         // Seed Medicines
         $this->call('MedicineSeeder');
+        
+        // Seed Wards
+        $this->call('WardSeeder');
     }
 }
