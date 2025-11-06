@@ -105,4 +105,16 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], function($route
     $routes->post('prescriptions/(:num)/complete', 'PrescriptionController::complete/$1');
     $routes->post('prescriptions/(:num)/cancel', 'PrescriptionController::cancel/$1');
     $routes->delete('prescriptions/(:num)', 'PrescriptionController::delete/$1');
+
+    // Lab Test routes
+    $routes->get('lab-tests', 'LabTestController::index');
+    $routes->get('lab-tests/pending', 'LabTestController::pending');
+    $routes->get('lab-tests/completed', 'LabTestController::completed');
+    $routes->get('lab-tests/patient/(:num)', 'LabTestController::patientTests/$1');
+    $routes->get('lab-tests/(:num)', 'LabTestController::show/$1');
+    $routes->post('lab-tests', 'LabTestController::create');
+    $routes->put('lab-tests/(:num)', 'LabTestController::update/$1');
+    $routes->post('lab-tests/(:num)/submit-result', 'LabTestController::submitResult/$1');
+    $routes->post('lab-tests/(:num)/cancel', 'LabTestController::cancel/$1');
+    $routes->delete('lab-tests/(:num)', 'LabTestController::delete/$1');
 });
