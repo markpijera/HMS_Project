@@ -86,4 +86,12 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], function($route
     $routes->post('wards', 'WardController::create');
     $routes->put('wards/(:num)', 'WardController::update/$1');
     $routes->delete('wards/(:num)', 'WardController::delete/$1');
+
+    // Medical Record routes
+    $routes->get('medical-records', 'MedicalRecordController::index');
+    $routes->get('medical-records/patient/(:num)', 'MedicalRecordController::patientHistory/$1');
+    $routes->get('medical-records/(:num)', 'MedicalRecordController::show/$1');
+    $routes->post('medical-records', 'MedicalRecordController::create');
+    $routes->put('medical-records/(:num)', 'MedicalRecordController::update/$1');
+    $routes->delete('medical-records/(:num)', 'MedicalRecordController::delete/$1');
 });
