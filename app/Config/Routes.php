@@ -24,6 +24,15 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], function($route
     $routes->put('patients/(:num)', 'PatientController::update/$1');
     $routes->delete('patients/(:num)', 'PatientController::delete/$1');
 
+    // Doctor routes
+    $routes->get('doctors', 'DoctorController::index');
+    $routes->get('doctors/available', 'DoctorController::available');
+    $routes->get('doctors/(:num)', 'DoctorController::show/$1');
+    $routes->get('doctors/(:num)/schedule', 'DoctorController::schedule/$1');
+    $routes->post('doctors', 'DoctorController::create');
+    $routes->put('doctors/(:num)', 'DoctorController::update/$1');
+    $routes->delete('doctors/(:num)', 'DoctorController::delete/$1');
+
     // Appointment routes
     $routes->get('appointments', 'AppointmentController::index');
     $routes->post('appointments', 'AppointmentController::create');
