@@ -94,4 +94,15 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], function($route
     $routes->post('medical-records', 'MedicalRecordController::create');
     $routes->put('medical-records/(:num)', 'MedicalRecordController::update/$1');
     $routes->delete('medical-records/(:num)', 'MedicalRecordController::delete/$1');
+
+    // Prescription routes
+    $routes->get('prescriptions', 'PrescriptionController::index');
+    $routes->get('prescriptions/active', 'PrescriptionController::active');
+    $routes->get('prescriptions/patient/(:num)', 'PrescriptionController::patientPrescriptions/$1');
+    $routes->get('prescriptions/(:num)', 'PrescriptionController::show/$1');
+    $routes->post('prescriptions', 'PrescriptionController::create');
+    $routes->put('prescriptions/(:num)', 'PrescriptionController::update/$1');
+    $routes->post('prescriptions/(:num)/complete', 'PrescriptionController::complete/$1');
+    $routes->post('prescriptions/(:num)/cancel', 'PrescriptionController::cancel/$1');
+    $routes->delete('prescriptions/(:num)', 'PrescriptionController::delete/$1');
 });
