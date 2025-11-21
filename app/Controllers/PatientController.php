@@ -15,18 +15,28 @@ class PatientController extends BaseController
 
     public function index()
     {
+        $user = session()->get('user');
+        $branchId = $user['branch_id'] ?? null;
+        $isGlobal = $user && (empty($branchId) || $user['role'] === 'admin');
+
         $search = $this->request->getGet('search');
+        $builder = $this->patientModel;
+
+        if (! $isGlobal && $branchId) {
+            $builder = $builder->where('branch_id', $branchId);
+        }
 
         if ($search) {
-            $patients = $this->patientModel
+            $builder = $builder
+                ->groupStart()
                 ->like('first_name', $search)
                 ->orLike('last_name', $search)
                 ->orLike('phone', $search)
                 ->orLike('email', $search)
-                ->findAll();
-        } else {
-            $patients = $this->patientModel->findAll();
+                ->groupEnd();
         }
+
+        $patients = $builder->findAll();
 
         return view('patients/index', [
             'patients' => $patients,
@@ -54,6 +64,11 @@ class PatientController extends BaseController
     public function create()
     {
         $data = $this->request->getPost();
+
+        $user = session()->get('user');
+        if ($user && isset($user['branch_id']) && $user['branch_id']) {
+            $data['branch_id'] = $user['branch_id'];
+        }
 
         if (! $this->patientModel->save($data)) {
             return redirect()->back()->withInput()->with('errors', $this->patientModel->errors());

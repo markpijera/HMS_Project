@@ -25,7 +25,8 @@ class PatientModel extends Model
         'emergency_phone',
         'medical_history',
         'allergies',
-        'status'
+        'status',
+        'branch_id'
     ];
 
     // Dates

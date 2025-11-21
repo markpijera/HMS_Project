@@ -13,6 +13,7 @@ $routes->post('login', 'LoginController::login');
 $routes->get('dashboard', 'DashboardController::index', ['filter' => 'auth']);
 
 $routes->group('', ['filter' => 'auth'], static function ($routes) {
+    $routes->get('logout', 'LoginController::logout');
     $routes->get('patients', 'PatientController::index');
     $routes->get('patients/show/(:num)', 'PatientController::show/$1');
     $routes->get('patients/new', 'PatientController::new');
