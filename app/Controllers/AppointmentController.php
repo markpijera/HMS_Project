@@ -46,6 +46,31 @@ class AppointmentController extends BaseController
         ]);
     }
 
+    public function show($id = null)
+    {
+        if ($id === null) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Appointment not found');
+        }
+
+        $builder = $this->appointmentModel->builder();
+        $builder->select('appointments.*, '
+            . 'patients.first_name AS patient_first_name, patients.last_name AS patient_last_name, '
+            . 'doctors.first_name AS doctor_first_name, doctors.last_name AS doctor_last_name');
+        $builder->join('patients', 'patients.patient_id = appointments.patient_id', 'left');
+        $builder->join('doctors', 'doctors.doctor_id = appointments.doctor_id', 'left');
+        $builder->where('appointments.id', $id);
+
+        $appointment = $builder->get()->getRowArray();
+
+        if (! $appointment) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Appointment not found');
+        }
+
+        return view('appointments/show', [
+            'appointment' => $appointment,
+        ]);
+    }
+
     public function new()
     {
         $patients = $this->patientModel->orderBy('first_name')->findAll();

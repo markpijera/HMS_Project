@@ -89,6 +89,9 @@
                                 </td>
                                 <td>
                                     <div class="btn-group" role="group">
+                                        <a href="/appointments/show/<?= $appointment['id'] ?>" class="btn btn-sm btn-info me-1" title="View details">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
                                         <?php if (($appointment['status'] ?? '') !== 'confirmed' && ($appointment['status'] ?? '') !== 'completed'): ?>
                                             <a href="/appointments/confirm/<?= $appointment['id'] ?>" class="btn btn-sm btn-success" title="Confirm" onclick="return confirm('Confirm this appointment?');">
                                                 <i class="fas fa-check"></i>

@@ -22,6 +22,7 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('patients/delete/(:num)', 'PatientController::delete/$1');
 
     $routes->get('appointments', 'AppointmentController::index');
+    $routes->get('appointments/show/(:num)', 'AppointmentController::show/$1');
     $routes->get('appointments/new', 'AppointmentController::new');
     $routes->post('appointments/create', 'AppointmentController::create');
     $routes->get('appointments/confirm/(:num)', 'AppointmentController::confirm/$1');
