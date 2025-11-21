@@ -1,0 +1,35 @@
+# Commit counter (used by commit_helper.ps1)
+.commit_counter
+
+# CodeIgniter 4 specific
+/vendor/
+/writable/cache/*
+/writable/logs/*
+/writable/session/*
+/writable/uploads/*
+!writable/cache/index.html
+!writable/logs/index.html
+!writable/session/index.html
+!writable/uploads/index.html
+
+# Environment files
+.env
+env
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Composer
+composer.phar
+composer.lock
+
+# Node modules (if using npm)
+node_modules/
