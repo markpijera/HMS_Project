@@ -22,6 +22,17 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->post('patients/update/(:num)', 'PatientController::update/$1');
     $routes->get('patients/delete/(:num)', 'PatientController::delete/$1');
 
+    $routes->get('users', 'UserController::index');
+    $routes->get('users/reset-password/(:num)', 'UserController::resetPassword/$1');
+    $routes->post('users/reset-password/(:num)', 'UserController::updatePassword/$1');
+
+    $routes->get('branches', 'BranchController::index');
+    $routes->get('branches/new', 'BranchController::new');
+    $routes->post('branches/create', 'BranchController::create');
+    $routes->get('branches/edit/(:num)', 'BranchController::edit/$1');
+    $routes->post('branches/update/(:num)', 'BranchController::update/$1');
+    $routes->get('branches/delete/(:num)', 'BranchController::delete/$1');
+
     $routes->get('appointments', 'AppointmentController::index');
     $routes->get('appointments/show/(:num)', 'AppointmentController::show/$1');
     $routes->get('appointments/new', 'AppointmentController::new');
@@ -40,6 +51,9 @@ $routes->group('api/v1', ['namespace' => 'App\Controllers\Api'], function($route
     $routes->put('auth/profile', 'AuthController::updateProfile');
     $routes->post('auth/change-password', 'AuthController::changePassword');
     $routes->post('auth/logout', 'AuthController::logout');
+
+    // User admin routes
+    $routes->post('users/admin-update-password', 'UserController::adminUpdatePassword');
 
     // Patient routes
     $routes->get('patients', 'PatientController::index');

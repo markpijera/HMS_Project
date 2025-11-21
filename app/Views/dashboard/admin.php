@@ -205,6 +205,18 @@
 							</div>
 							<span class="action-label">Manage Patients</span>
 						</a>
+						<a href="/users" class="action-item">
+							<div class="action-icon">
+								<i class="fas fa-users-cog"></i>
+							</div>
+							<span class="action-label">Manage Users</span>
+						</a>
+						<a href="/branches" class="action-item">
+							<div class="action-icon">
+								<i class="fas fa-code-branch"></i>
+							</div>
+							<span class="action-label">Manage Branches</span>
+						</a>
 						<a href="/doctors" class="action-item">
 							<div class="action-icon">
 								<i class="fas fa-user-md"></i>
