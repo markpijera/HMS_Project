@@ -296,6 +296,13 @@
     color: #6c757d;
 }
 
+.remember-me input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
 .checkmark {
     width: 18px;
     height: 18px;

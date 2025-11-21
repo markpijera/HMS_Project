@@ -23,6 +23,8 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->get('patients/delete/(:num)', 'PatientController::delete/$1');
 
     $routes->get('users', 'UserController::index');
+    $routes->get('users/new', 'UserController::new');
+    $routes->post('users/create', 'UserController::create');
     $routes->get('users/reset-password/(:num)', 'UserController::resetPassword/$1');
     $routes->post('users/reset-password/(:num)', 'UserController::updatePassword/$1');
     $routes->get('users/edit/(:num)', 'UserController::edit/$1');

@@ -4,6 +4,7 @@
 <div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1><i class="fas fa-users-cog me-2"></i>Users</h1>
+        <a href="/users/new" class="btn btn-primary"><i class="fas fa-user-plus me-1"></i>Add User</a>
     </div>
 
     <?php if (session()->has('message')): ?>

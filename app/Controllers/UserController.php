@@ -31,6 +31,60 @@ class UserController extends BaseController
         ]);
     }
 
+    public function new()
+    {
+        if ($redirect = $this->enforceRoles(['admin'])) {
+            return $redirect;
+        }
+
+        $branches = $this->branchModel
+            ->orderBy('name', 'ASC')
+            ->findAll();
+
+        return view('users/new', [
+            'branches' => $branches,
+        ]);
+    }
+
+    public function create()
+    {
+        if ($redirect = $this->enforceRoles(['admin'])) {
+            return $redirect;
+        }
+
+        $data = [
+            'name'      => $this->request->getPost('name'),
+            'email'     => $this->request->getPost('email'),
+            'password'  => $this->request->getPost('password'),
+            'role'      => $this->request->getPost('role'),
+            'branch_id' => $this->request->getPost('branch_id') ?: null,
+            'status'    => $this->request->getPost('status') ?: 'active',
+            'phone'     => $this->request->getPost('phone') ?: null,
+        ];
+
+        $passwordConfirm = $this->request->getPost('password_confirm');
+
+        $errors = [];
+
+        if (! $data['password'] || strlen($data['password']) < 8) {
+            $errors[] = 'Password must be at least 8 characters.';
+        }
+
+        if ($data['password'] !== $passwordConfirm) {
+            $errors[] = 'Password confirmation does not match.';
+        }
+
+        if (! empty($errors)) {
+            return redirect()->back()->withInput()->with('errors', $errors);
+        }
+
+        if (! $this->userModel->insert($data)) {
+            return redirect()->back()->withInput()->with('errors', $this->userModel->errors());
+        }
+
+        return redirect()->to('/users')->with('message', 'User created successfully.');
+    }
+
     public function resetPassword($id = null)
     {
         if ($redirect = $this->enforceRoles(['admin'])) {

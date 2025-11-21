@@ -6,6 +6,10 @@ body {
     color: #333;
 }
 
+.global-back-button-container {
+    padding: 10px 20px 0;
+}
+
 .header {
     background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
