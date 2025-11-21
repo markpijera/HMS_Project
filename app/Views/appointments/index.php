@@ -7,6 +7,10 @@
         <a href="/appointments/new" class="btn btn-primary"><i class="fas fa-plus me-1"></i>New Appointment</a>
     </div>
 
+    <p class="text-muted mb-3">
+        Total appointments: <?= is_array($appointments) ? count($appointments) : 0 ?>
+    </p>
+
     <div class="card mb-4">
         <div class="card-body">
             <form method="get" class="row g-3">
@@ -28,6 +32,18 @@
                     <button type="submit" class="btn btn-outline-primary w-100"><i class="fas fa-filter"></i> Filter</button>
                 </div>
             </form>
+
+            <?php if (!empty($filter_date) || !empty($filter_status)): ?>
+                <div class="small text-muted mt-2">
+                    Showing appointments
+                    <?php if (!empty($filter_date)): ?>
+                        on <strong><?= esc($filter_date) ?></strong>
+                    <?php endif; ?>
+                    <?php if (!empty($filter_status)): ?>
+                        with status <strong><?= ucfirst(esc($filter_status)) ?></strong>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
 

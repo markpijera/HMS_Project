@@ -7,12 +7,16 @@
         <a href="/patients/new" class="btn btn-primary"><i class="fas fa-plus me-1"></i>Add Patient</a>
     </div>
 
+    <p class="text-muted mb-3">
+        Total patients: <?= is_array($patients) ? count($patients) : 0 ?>
+    </p>
+
     <!-- Search Bar -->
     <div class="card mb-4">
         <div class="card-body">
             <form method="get" class="row g-3">
                 <div class="col-md-4">
-                    <input type="text" name="search" class="form-control" placeholder="Search by name or ID" value="<?= esc($_GET['search'] ?? '') ?>">
+                    <input type="text" name="search" class="form-control" placeholder="Search by name, phone, or email" value="<?= esc($_GET['search'] ?? '') ?>">
                 </div>
                 <div class="col-md-2">
                     <button type="submit" class="btn btn-outline-primary w-100"><i class="fas fa-search"></i> Search</button>

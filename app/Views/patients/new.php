@@ -34,25 +34,25 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="first_name" class="form-label"><i class="fas fa-signature me-1"></i>First Name</label>
-                                        <input type="text" class="form-control" id="first_name" name="first_name" required>
+                                        <input type="text" class="form-control" id="first_name" name="first_name" value="<?= esc(old('first_name')) ?>" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="last_name" class="form-label"><i class="fas fa-signature me-1"></i>Last Name</label>
-                                        <input type="text" class="form-control" id="last_name" name="last_name" required>
+                                        <input type="text" class="form-control" id="last_name" name="last_name" value="<?= esc(old('last_name')) ?>" required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="date_of_birth" class="form-label"><i class="fas fa-birthday-cake me-1"></i>Date of Birth</label>
-                                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
+                                        <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" value="<?= esc(old('date_of_birth')) ?>" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="gender" class="form-label"><i class="fas fa-venus-mars me-1"></i>Gender</label>
                                         <select class="form-select" id="gender" name="gender" required>
                                             <option value="">Select Gender</option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
+                                            <option value="Male" <?= old('gender') === 'Male' ? 'selected' : '' ?>>Male</option>
+                                            <option value="Female" <?= old('gender') === 'Female' ? 'selected' : '' ?>>Female</option>
+                                            <option value="Other" <?= old('gender') === 'Other' ? 'selected' : '' ?>>Other</option>
                                         </select>
                                     </div>
                                 </div>
@@ -72,20 +72,20 @@
                                 <div class="row">
                                     <div class="col-md-6 mb-3">
                                         <label for="phone" class="form-label"><i class="fas fa-phone me-1"></i>Phone</label>
-                                        <input type="tel" class="form-control" id="phone" name="phone" required>
+                                        <input type="tel" class="form-control" id="phone" name="phone" value="<?= esc(old('phone')) ?>" required>
                                     </div>
                                     <div class="col-md-6 mb-3">
                                         <label for="email" class="form-label"><i class="fas fa-envelope me-1"></i>Email</label>
-                                        <input type="email" class="form-control" id="email" name="email" required>
+                                        <input type="email" class="form-control" id="email" name="email" value="<?= esc(old('email')) ?>" required>
                                     </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="address" class="form-label"><i class="fas fa-map-marker-alt me-1"></i>Address</label>
-                                    <textarea class="form-control" id="address" name="address" rows="3"></textarea>
+                                    <textarea class="form-control" id="address" name="address" rows="3"><?= esc(old('address')) ?></textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label for="emergency_contact" class="form-label"><i class="fas fa-phone-square me-1"></i>Emergency Contact</label>
-                                    <input type="text" class="form-control" id="emergency_contact" name="emergency_contact">
+                                    <input type="text" class="form-control" id="emergency_contact" name="emergency_contact" value="<?= esc(old('emergency_contact')) ?>">
                                 </div>
                             </div>
                         </div>
@@ -102,7 +102,7 @@
                             <div class="accordion-body">
                                 <div class="mb-3">
                                     <label for="medical_history" class="form-label"><i class="fas fa-history me-1"></i>Medical History</label>
-                                    <textarea class="form-control" id="medical_history" name="medical_history" rows="4"></textarea>
+                                    <textarea class="form-control" id="medical_history" name="medical_history" rows="4"><?= esc(old('medical_history')) ?></textarea>
                                 </div>
                             </div>
                         </div>
