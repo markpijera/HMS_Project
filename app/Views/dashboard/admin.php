@@ -126,6 +126,12 @@
 								</div>
 								<span class="action-label">Manage Branches</span>
 							</a>
+							<a href="/settings" class="action-item">
+								<div class="action-icon">
+									<i class="fas fa-cogs"></i>
+								</div>
+								<span class="action-label">System Settings</span>
+							</a>
 						<?php endif; ?>
 					</div>
 				</div>

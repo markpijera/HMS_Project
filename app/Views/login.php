@@ -7,7 +7,7 @@
             <div class="welcome-content">
                 <div class="logo-section">
                     <i class="fas fa-hospital-alt main-icon"></i>
-                    <h1>Hospital Management System</h1>
+                    <h1><?= esc(get_setting('hospital_name', 'Hospital Management System')) ?></h1>
                     <p class="subtitle">Advanced Healthcare Solutions</p>
                 </div>
                 <div class="features">
@@ -85,6 +85,12 @@
 
                 <div class="login-footer">
                     <p>Don't have an account? <a href="#" class="signup-link">Contact Administrator</a></p>
+                    <p class="mt-2" style="font-size: 0.85rem; color: #6c757d;">
+                        <?= esc(get_setting('hospital_email', '')) ?>
+                        <?php if (get_setting('hospital_phone', '')): ?>
+                            &middot; <?= esc(get_setting('hospital_phone')) ?>
+                        <?php endif; ?>
+                    </p>
                 </div>
             </div>
         </div>

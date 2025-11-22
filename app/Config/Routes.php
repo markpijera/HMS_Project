@@ -37,6 +37,9 @@ $routes->group('', ['filter' => 'auth'], static function ($routes) {
     $routes->post('branches/update/(:num)', 'BranchController::update/$1');
     $routes->get('branches/delete/(:num)', 'BranchController::delete/$1');
 
+    $routes->get('settings', 'SettingsController::index');
+    $routes->post('settings', 'SettingsController::update');
+
     $routes->get('appointments', 'AppointmentController::index');
     $routes->get('appointments/show/(:num)', 'AppointmentController::show/$1');
     $routes->get('appointments/new', 'AppointmentController::new');
